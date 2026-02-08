@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhosNext - Random Choice | Your Random Decision Maker</title>
+    <meta name="description" content="WhosNext is your ultimate random decision maker. 14+ tools including Finger Chooser, Lucky Wheel, Coin Flip, Dice Roller, and more. Available on iOS.">
+    <meta name="keywords" content="random chooser app, random decision maker, finger chooser, lucky wheel, coin flip, dice roller, whosnext">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="WhosNext - Random Choice">
+    <meta property="og:description" content="Your Random Decision Maker — 14+ tools to make decisions fun.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salahxiv.github.io">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C8A96A;
+            --gold-light: #d4ba82;
+            --gold-dark: #a8894a;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
+            --text-primary: #f5f5f5;
+            --text-secondary: #999999;
+            --text-muted: #666666;
+            --border: #2a2a2a;
+            --ocean: #4A90D9;
+            --forest: #4CAF50;
+            --sunset: #FF7043;
+            --royal: #7E57C2;
+            --rose: #E91E63;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 169, 106, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(126, 87, 194, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(74, 144, 217, 0.06) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gold);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem 2rem;
+            border-radius: 14px;
+            transition: all 0.25s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(200, 169, 106, 0.25);
+        }
+
+        .hero-cta svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== SECTION SHARED ===== */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ===== FEATURES GRID ===== */
+        .features {
+            background: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(200, 169, 106, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: rgba(200, 169, 106, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== SCREENSHOTS ===== */
+        .screenshots {
+            overflow: hidden;
+        }
+
+        .screenshots-track {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .screenshot-frame {
+            width: 220px;
+            height: 440px;
+            border-radius: 28px;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 24px;
+            background: var(--bg-primary);
+            border-radius: 0 0 14px 14px;
+        }
+
+        .screenshot-placeholder {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .screenshot-placeholder .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== THEMES ===== */
+        .themes {
+            background: var(--bg-secondary);
+        }
+
+        .themes-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .theme-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.65rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .theme-chip:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .theme-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .theme-chip span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ===== LANGUAGES ===== */
+        .languages {
+            text-align: center;
+        }
+
+        .languages-list {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .lang-flag {
+            font-size: 1.4rem;
+        }
+
+        /* ===== DOWNLOAD CTA ===== */
+        .download {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .download::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200, 169, 106, 0.06) 0%, transparent 70%);
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .download h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .download p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            transition: all 0.25s ease;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        .app-store-btn img {
+            height: 54px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .hero-stat-value {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .feature-card {
+                padding: 1.1rem;
+            }
+
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .screenshot-frame {
+                width: 160px;
+                height: 320px;
+            }
+
+            .themes-grid {
+                gap: 0.75rem;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>&#9733;</span> Free on the App Store
+            </div>
+            <h1>
+                <span class="accent">WhosNext</span><br>
+                Random Choice
+            </h1>
+            <p class="hero-tagline">
+                Your random decision maker — 14+ fun tools to settle any debate, pick a winner, or just let fate decide.
+            </p>
+            <a href="https://apps.apple.com/gb/app/whosnext-random-chooser/id6751165238" class="hero-cta" aria-label="Download on the App Store">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download for iOS
+            </a>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">14+</div>
+                    <div class="hero-stat-label">Tools</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">6</div>
+                    <div class="hero-stat-label">Themes</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">6</div>
+                    <div class="hero-stat-label">Languages</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Everything You Need to Decide</h2>
+            <p>From quick coin flips to full-blown game nights — we've got you covered.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9995;</div>
+                <h3>Finger Chooser</h3>
+                <p>Everyone places a finger on the screen — one gets chosen at random.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127905;</div>
+                <h3>Lucky Wheel</h3>
+                <p>Spin the wheel with custom options. Watch it land on the winner.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#129689;</div>
+                <h3>Coin Flip</h3>
+                <p>Heads or tails — the classic 50/50 decision maker.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127922;</div>
+                <h3>Dice Roller</h3>
+                <p>Roll up to multiple dice with realistic physics and animations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127920;</div>
+                <h3>Roulette</h3>
+                <p>Spin the roulette wheel for a random number pick.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128290;</div>
+                <h3>Number Generator</h3>
+                <p>Generate random numbers in any range with one tap.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127183;</div>
+                <h3>Blackjack</h3>
+                <p>Play a quick round of 21 to make your decision.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#10060;</div>
+                <h3>Tic-Tac-Toe</h3>
+                <p>Settle it with a classic game. Play against a friend or AI.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128302;</div>
+                <h3>Magic 8-Ball</h3>
+                <p>Ask a question, shake, and get a mysterious answer.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9994;</div>
+                <h3>Rock Paper Scissors</h3>
+                <p>The timeless hand game — now on your screen.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128101;</div>
+                <h3>Team Generator</h3>
+                <p>Split any group into fair, random teams instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9917;</div>
+                <h3>FIFA Team Picker</h3>
+                <p>Random team draft for FIFA game nights with friends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots" id="screenshots">
+        <div class="section-header">
+            <h2>Designed to Delight</h2>
+            <p>Beautiful dark UI with smooth animations and haptic feedback.</p>
+        </div>
+        <div class="screenshots-track">
+            <div class="screenshot-frame">
+                <div class="screenshot-placeholder">
+                    <span class="emoji">&#9995;</span>
+                    Finger Chooser
+                </div>
+            </div>
+            <div class="screenshot-frame">
+                <div class="screenshot-placeholder">
+                    <span class="emoji">&#127905;</span>
+                    Lucky Wheel
+                </div>
+            </div>
+            <div class="screenshot-frame">
+                <div class="screenshot-placeholder">
+                    <span class="emoji">&#129689;</span>
+                    Coin Flip
+                </div>
+            </div>
+            <div class="screenshot-frame">
+                <div class="screenshot-placeholder">
+                    <span class="emoji">&#127922;</span>
+                    Dice Roller
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes -->
+    <section class="themes">
+        <div class="section-header">
+            <h2>Make It Yours</h2>
+            <p>Choose from 6 hand-crafted color themes.</p>
+        </div>
+        <div class="themes-grid">
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #C8A96A;"></div>
+                <span>Gold</span>
+            </div>
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #4A90D9;"></div>
+                <span>Ocean</span>
+            </div>
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #4CAF50;"></div>
+                <span>Forest</span>
+            </div>
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #FF7043;"></div>
+                <span>Sunset</span>
+            </div>
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #7E57C2;"></div>
+                <span>Royal</span>
+            </div>
+            <div class="theme-chip">
+                <div class="theme-dot" style="background: #E91E63;"></div>
+                <span>Rose</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="languages">
+        <div class="section-header">
+            <h2>Speaks Your Language</h2>
+            <p>Available in 6 languages with full localization.</p>
+        </div>
+        <div class="languages-list">
+            <div class="lang-item">
+                <span class="lang-flag">&#127468;&#127463;</span> English
+            </div>
+            <div class="lang-item">
+                <span class="lang-flag">&#127465;&#127466;</span> Deutsch
+            </div>
+            <div class="lang-item">
+                <span class="lang-flag">&#127466;&#127480;</span> Espa&ntilde;ol
+            </div>
+            <div class="lang-item">
+                <span class="lang-flag">&#127467;&#127479;</span> Fran&ccedil;ais
+            </div>
+            <div class="lang-item">
+                <span class="lang-flag">&#127470;&#127481;</span> Italiano
+            </div>
+            <div class="lang-item">
+                <span class="lang-flag">&#127480;&#127462;</span> &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section class="download">
+        <div class="download-content">
+            <h2>Ready to Decide?</h2>
+            <p>Download WhosNext for free and never argue about who goes first again.</p>
+            <a href="https://apps.apple.com/gb/app/whosnext-random-chooser/id6751165238" class="app-store-btn" aria-label="Download on the App Store">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://apps.apple.com/gb/app/whosnext-random-chooser/id6751165238">App Store</a>
+            <a href="mailto:salahalhaji14@gmail.com">Contact &amp; Support</a>
+        </div>
+        <p class="footer-copy">&copy; 2025 WhosNext. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
