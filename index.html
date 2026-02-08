@@ -274,43 +274,24 @@
         }
 
         .screenshot-frame {
-            width: 220px;
-            height: 440px;
-            border-radius: 28px;
-            border: 2px solid var(--border);
-            background: var(--bg-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 230px;
+            border-radius: 20px;
             flex-shrink: 0;
-            position: relative;
             overflow: hidden;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .screenshot-frame::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 24px;
-            background: var(--bg-primary);
-            border-radius: 0 0 14px 14px;
+        .screenshot-frame:hover {
+            border-color: rgba(200, 169, 106, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .screenshot-placeholder {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .screenshot-placeholder .emoji {
-            font-size: 2rem;
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
             display: block;
-            margin-bottom: 0.5rem;
         }
 
         /* ===== THEMES ===== */
@@ -488,7 +469,6 @@
 
             .screenshot-frame {
                 width: 160px;
-                height: 320px;
             }
 
             .themes-grid {
@@ -621,28 +601,22 @@
         </div>
         <div class="screenshots-track">
             <div class="screenshot-frame">
-                <div class="screenshot-placeholder">
-                    <span class="emoji">&#9995;</span>
-                    Finger Chooser
-                </div>
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/81/5c/10/815c103a-c999-a6b3-13a9-19af19289c2a/01.png/460x996bb.png" alt="WhosNext App Screenshot 1" loading="lazy">
             </div>
             <div class="screenshot-frame">
-                <div class="screenshot-placeholder">
-                    <span class="emoji">&#127905;</span>
-                    Lucky Wheel
-                </div>
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/a3/16/18a31603-a87a-9332-2ced-41293a022af9/02.png/460x996bb.png" alt="WhosNext App Screenshot 2" loading="lazy">
             </div>
             <div class="screenshot-frame">
-                <div class="screenshot-placeholder">
-                    <span class="emoji">&#129689;</span>
-                    Coin Flip
-                </div>
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/60/3d/68/603d6847-88ea-8dbc-28b1-792c40f548ce/03.png/460x996bb.png" alt="WhosNext App Screenshot 3" loading="lazy">
             </div>
             <div class="screenshot-frame">
-                <div class="screenshot-placeholder">
-                    <span class="emoji">&#127922;</span>
-                    Dice Roller
-                </div>
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d1/62/63/d162631a-066d-94f2-2de2-1739138dc19f/04.png/460x996bb.png" alt="WhosNext App Screenshot 4" loading="lazy">
+            </div>
+            <div class="screenshot-frame">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/84/35/fa/8435fa6f-13f1-01da-fe1e-a40e000e32e0/05.png/460x996bb.png" alt="WhosNext App Screenshot 5" loading="lazy">
+            </div>
+            <div class="screenshot-frame">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/05/ab/fd/05abfdd0-7db5-8f10-9b4e-f74fd8860b2f/06.png/460x996bb.png" alt="WhosNext App Screenshot 6" loading="lazy">
             </div>
         </div>
     </section>
