@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — WhosNext</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #C8A96A; --gold-light: #d4ba82;
+            --bg-primary: #0a0a0a; --text-primary: #f5f5f5;
+            --text-secondary: #999999; --text-muted: #666666; --border: #2a2a2a;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary); color: var(--text-primary);
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 2rem; position: relative; overflow: hidden;
+        }
+        body::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(200,169,106,0.08) 0%, transparent 70%);
+        }
+        .wrapper { position: relative; z-index: 1; }
+        .error-code {
+            font-size: clamp(5rem, 15vw, 10rem); font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1; margin-bottom: 1rem;
+        }
+        h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+        p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; max-width: 400px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--gold); color: #0a0a0a; text-decoration: none;
+            font-weight: 600; font-size: 0.95rem; padding: 0.8rem 1.75rem;
+            border-radius: 12px; transition: all 0.25s ease;
+        }
+        .btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,169,106,0.25); }
+        .links { margin-top: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .links a:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <a href="/" class="btn">Back to Home</a>
+        <div class="links">
+            <a href="/support">Support</a>
+            <a href="https://apps.apple.com/gb/app/whosnext-random-chooser/id6751165238">App Store</a>
+        </div>
+    </div>
+</body>
+</html>

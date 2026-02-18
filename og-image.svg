@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C8A96A"/>
+      <stop offset="100%" style="stop-color:#d4ba82"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:rgba(200,169,106,0.15)"/>
+      <stop offset="100%" style="stop-color:rgba(200,169,106,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="600" y="240" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="80" font-weight="800" fill="url(#gold)">WhosNext</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="42" font-weight="600" fill="#f5f5f5">Random Choice</text>
+  <text x="600" y="400" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="400" fill="#999999">14+ tools to make random decisions fun</text>
+  <rect x="475" y="450" width="250" height="50" rx="12" fill="url(#gold)"/>
+  <text x="600" y="483" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#0a0a0a">Download for iOS</text>
+</svg>
