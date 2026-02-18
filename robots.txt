@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://whosnext.devsalah.com/sitemap.xml
